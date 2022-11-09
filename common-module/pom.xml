@@ -3,6 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.4</version>
+    </parent>
+
     <groupId>liga.medical</groupId>
     <artifactId>common</artifactId>
     <packaging>pom</packaging>
@@ -34,8 +40,6 @@
         <pmd.plugin.version>3.14.0</pmd.plugin.version>
         <checkstyle.version>8.45.1</checkstyle.version>
 
-        <spring.boot.version>2.3.0.RELEASE</spring.boot.version>
-        <spring.cloud.version>2.2.6.RELEASE</spring.cloud.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <model.mapper.version>2.3.7</model.mapper.version>
         <guava.version>29.0-jre</guava.version>
@@ -43,15 +47,15 @@
         <springboot.test.version>2.1.2.RELEASE</springboot.test.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
@@ -59,18 +63,18 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring.boot.version}</version>
+                    <version>2.7.5</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pmd-plugin</artifactId>
                     <version>${pmd.plugin.version}</version>
                 </plugin>
-                <plugin>
+                <!--<plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
                     <version>${checkstyle.plugin.version}</version>
-                </plugin>
+                </plugin>-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -90,7 +94,7 @@
         </pluginManagement>
 
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <configuration>
@@ -117,18 +121,10 @@
                         <version>${project.version}</version>
                     </dependency>
                 </dependencies>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>Test Jar</id>-->
-<!--                        <goals>-->
-<!--                            <goal>test-jar</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -151,7 +147,7 @@
 
 
 
-    <profiles>
+    <!--<profiles>
         <profile>
             <id>all-checks-off</id>
             <build>
@@ -173,18 +169,5 @@
                 </plugins>
             </build>
         </profile>
-    </profiles>
-
-    <distributionManagement>
-        <!--        <repository>-->
-        <!--            <id></id>-->
-        <!--            <name></name>-->
-        <!--            <url></url>-->
-        <!--        </repository>-->
-        <!--        <snapshotRepository>-->
-        <!--            <id></id>-->
-        <!--            <name></name>-->
-        <!--            <url></url>-->
-        <!--        </snapshotRepository>-->
-    </distributionManagement>
+    </profiles>-->
 </project>
